@@ -9,7 +9,8 @@ public:
     Exporter(QDir dir);
     ~Exporter();
 
-    void recursiveParse();
+
+private:
     QDir m_dir;
 };
 

@@ -15,6 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        acqus_scanner.cpp \
+        csv_builder.cpp \
         exporter.cpp \
         main.cpp
 
@@ -24,4 +26,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    exporter.h
+    acqus_scanner.h \
+    csv_builder.h \
+    exporter.h \
+    structs.h
