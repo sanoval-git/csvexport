@@ -2,7 +2,7 @@
 #define EXPORTER_H
 
 #include <QDir>
-
+#include "acqus_scanner.h"
 class Exporter
 {
 public:

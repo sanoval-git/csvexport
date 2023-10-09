@@ -28,5 +28,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     acqus_scanner.h \
     csv_builder.h \
+    exception.h \
     exporter.h \
     structs.h
