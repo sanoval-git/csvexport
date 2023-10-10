@@ -11,15 +11,6 @@ public:
     ~AcqusScanner();
 
 private:
-    QString getDate();
-    QString getTime();
-    QString getStartTime();
-    int getSpentTime();
-    int getNs();
-    float getAq();
-    int getTd();
-    float getDw();
-    ///
     QString getParentPath();
 
 private:

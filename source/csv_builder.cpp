@@ -10,7 +10,6 @@ CsvBuilder::CsvBuilder(QDir parent, QString filename)
         for(int i=1; i<=100; i++)
         {
             QString newFileName(parent.path().append("/").append(filename).append(QString::number(i)).append(".csv"));
-//            qDebug()<<newFileName;
             if(!QFile::exists(newFileName)){
                 m_file.setFileName(newFileName);
                 break;

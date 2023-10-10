@@ -20,34 +20,27 @@ AcqusScanner::AcqusScanner(QDir root, QDir parent, CsvBuilder* builder)
     while (!m_acqus->atEnd()) {
         QByteArray line = m_acqus->readLine();
         if(i == 6){
-            date = line.chopped(48).remove(0,3).remove(11,9);
+            date = line.chopped(48).remove(0,7).remove(7,9);
             time = line.chopped(48).remove(0,14).remove(8,8);
         }
         else if( line.startsWith("##$SW=")) {
             sw = QString(line.remove(0,7).simplified()).toFloat();
-//            qDebug() << "SW:" << sw;
         }
         else if(line.startsWith("##$SFO1=")){
             sfo1 = QString(line.remove(0,8).simplified()).toFloat();
-//            qDebug() << "SFO1:" << sfo1;
         }
         else if(line.startsWith("##$TD=")){
             td = QString(line.remove(0,6).simplified()).toInt();
-//            qDebug() << "TD:" << td;
         }
         else if(line.startsWith("##$NS=")){
             ns = QString(line.remove(0,6).simplified()).toInt();
-            qDebug() << "NS:" << ns;
         }
         i++;
     }
 
     float dw = 1 / (2 * sw * sfo1);
-//    qDebug()<<"DW:"<<dw;
     float aq = dw * (td - 1);
-    qDebug()<<"AQ:"<<aq;
     spent_time = ns*aq/86400;
-    qDebug()<<spent_time;
 
     m_builder->addLine({parent.dirName(), date, time, spent_time, ns, aq, td, dw});
 }
